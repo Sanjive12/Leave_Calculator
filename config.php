@@ -1,8 +1,8 @@
 <?php
 // Database connection configuration
-$servername = "localhost"; // Change this to your database server
-$username = "root"; // Change this to your database username
-$password = "root"; // Change this to your database password
+$servername = "localhost"; 
+$username = "root"; 
+$password = "root"; 
 $dbname = "leave_management";
 
 // Create a database connection

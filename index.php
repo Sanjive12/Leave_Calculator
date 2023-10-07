@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
         // Calculate the number of leave days
         $leaveDays = date_diff(date_create($leaveFrom), date_create($leaveTo))->days + 1;
 
-        // Check if the leave dates fall on holidays or Sundays
+        // Check the days are holiday or Sunday
         $leaveDates = [];
         $currentDate = date_create($leaveFrom);
         while ($currentDate <= date_create($leaveTo)) {
@@ -27,10 +27,10 @@ if (isset($_POST['submit'])) {
             date_add($currentDate, date_interval_create_from_date_string('1 day'));
         }
 
-        // Calculate the effective leave days
+        // Calculate the actual leave days
         $effectiveLeaveDays = count($leaveDates);
 
-        // Check if the employee has enough leave balance
+        // Check if the employee leave balance
         if ($effectiveLeaveDays <= $staffs[$staff]) {
             // Deduct leave days from the balance
             $staffs[$staff] -= $effectiveLeaveDays;
@@ -46,7 +46,6 @@ if (isset($_POST['submit'])) {
 <html>
 <head>
     <title>Leave Calculator</title>
-    <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>

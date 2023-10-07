@@ -1,9 +1,9 @@
 <?php
 // Database connection configuration
-$servername = "localhost"; 
-$username = "root"; 
-$password = "root"; 
-$dbname = "leave_management";
+$servername = "localhost"; // Server name
+$username = "root"; // User name
+$password = "root"; // User password
+$dbname = "leave_management"; //Db name
 
 // Create a database connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -13,7 +13,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch staff data from the database
+// Get the staff data from the database
 $staffs = [];
 $sql = "SELECT name, leave_balance FROM staff";
 $result = $conn->query($sql);
@@ -23,7 +23,7 @@ if ($result->num_rows > 0) {
     }
 }
 
-// Fetch holidays data from the database
+// Get the holidays data from the database
 $holidays = [];
 $sql = "SELECT date FROM holidays";
 $result = $conn->query($sql);

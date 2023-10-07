@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
 
         // Check if the employee leave balance
         if ($effectiveLeaveDays <= $staffs[$staff]) {
-            // Deduct leave days from the balance
+            // Staff leave days from the balance
             $staffs[$staff] -= $effectiveLeaveDays;
             $message = "Employee: $staff<br>Leave dates: $leaveFrom till $leaveTo<br>Leave days: $effectiveLeaveDays<br>Leave eligible? Yes<br>Leave balance after leave: {$staffs[$staff]}";
         } else {

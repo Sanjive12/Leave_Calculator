@@ -1,8 +1,8 @@
--- Database creation
+--Database creation
 CREATE DATABASE leave_management;
--- Use the database
+--Use the database
 USE leave_management;
--- staff table
+--staff table
 CREATE TABLE staff (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,

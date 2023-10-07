@@ -113,7 +113,7 @@ if (isset($_POST['submit'])) {
 
     <script>
         $(document).ready(function () {
-            // Form validation rules
+            // Form validation 
             $("#leaveForm").validate({
                 rules: {
                     staff: {

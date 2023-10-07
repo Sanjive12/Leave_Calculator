@@ -81,34 +81,31 @@ if (isset($_POST['submit'])) {
 
             <button type="submit" name="submit" class="btn btn-primary">Calculate</button>
 
-            <!-- Add Clear button -->
+            <!-- Clear button -->
             <button type="button" id="clearForm" class="btn btn-secondary ml-2">Clear</button>
         </form>
 
         <?php
         if (isset($message)) {
-            // Separate the message into parts for styling
             $parts = explode('<br>', $message);
-
             foreach ($parts as $part) {
                 if (strpos($part, 'No (Insufficient leave balance)') !== false) {
-                    echo "<p class='text-danger'>$part</p>"; // Display in red (danger)
+                    echo "<p class='text-danger'>$part</p>"; 
                 } elseif (strpos($part, 'Leave eligible? Yes') !== false) {
-                    echo "<p class='text-success'>$part</p>"; // Display in green (success)
+                    echo "<p class='text-success'>$part</p>"; 
                 } else {
-                    echo "<p class='text-black'>$part</p>"; // Display in black
+                    echo "<p class='text-black'>$part</p>"; 
                 }
             }
         }
         ?>
     </div>
 
-    <!-- Include Bootstrap JS and jQuery -->
+    <!-- script -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- Include jQuery Validate plugin -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
 
     <script>
@@ -132,7 +129,7 @@ if (isset($_POST['submit'])) {
                     leave_to: "Please select a valid leave to date",
                 },
                 errorPlacement: function (error, element) {
-                    // Display validation messages in separate div elements
+                    
                     error.appendTo("#" + element.attr("id") + "-error");
                 },
                 submitHandler: function (form) {
@@ -142,13 +139,13 @@ if (isset($_POST['submit'])) {
                         data: $(form).serialize(),
                         success: function (response) {
                             if (response.indexOf("Validation Error") !== -1) {
-                                // Display validation error message in red
+                               
                                 $('#message').html('');
                                 $('#message').addClass('text-danger');
                                 $('#message').removeClass('text-success');
                                 $('#message').html(response);
                             } else {
-                                // Display success message in black
+                                
                                 $('#message').html('');
                                 $('#message').addClass('text-black');
                                 $('#message').removeClass('text-danger');
@@ -160,7 +157,7 @@ if (isset($_POST['submit'])) {
                 }
             });
 
-            // Clear button click event
+            // Clear button 
             $("#clearForm").click(function () {
                 $('#leaveForm')[0].reset(); // Clear form fields
 
